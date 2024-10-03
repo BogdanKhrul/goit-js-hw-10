@@ -1,27 +1,94 @@
-.delay-label input {
-  width: 207px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  height: 30px;
-}
-
 .fieldset {
-  margin: 0px 0px 13px;
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    stroke-width: 1px;
+    stroke: #808080;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #2e2f42;
+    padding-bottom: 8px;
+    max-width: 330px;
+    margin-bottom: 24px;
+    font-family: "Montserrat", sans-serif;
 }
 
-.delay-label {
-  font-size: 20px;
-  font-weight: 600;
+
+legend {
+    margin-right: auto;
+    border-radius: 4px;
+    stroke-width: 1px;
+    stroke: #808080;
+    font-family: "Montserrat", sans-serif;
 }
 
-.form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 100px;
+.btn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 360px;
+    height: 40px;
+    background: #4e75ff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+    border: none;
 }
 
-.form button {
-  width: 100%;
-  padding: 5px;
+.btn:hover {
+
+    background: #6c8cff;
+}
+
+label {
+    display: flex;
+  
+    
+}
+
+.lbf {
+    display: block;
+    margin-bottom: 20px;
+    width: 360px;
+    height: 72px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+    stroke: #808080;
+}
+
+.lbf:hover {
+    color: #2E2F42;
+}
+
+.lbf input[type="number"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid ;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    color: #808080;
+    
+}
+
+.lbf input[type="number"]:focus {
+    border-color: #2E2F42;
+}
+
+.lbf input[type="number"]:active {
+    border-color: #4E75FF
+};
+
+.fieldset input[type="radio"] {
+    font-family: "Montserrat", sans-serif;
 }

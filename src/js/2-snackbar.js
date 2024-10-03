@@ -1,72 +1,35 @@
-import iziToast from 'izitoast';
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
-import 'izitoast/dist/css/iziToast.min.css';
-
-const refs = {
-  delayInput: document.querySelector('#delay'),
-  fulfilledInput: document.querySelector('input[value="fulfilled"]'),
-  rejectedInput: document.querySelector('input[value="rejected"]'),
-  createBtn: document.querySelector('button[type="submit"]'),
-  form: document.querySelector('.form'),
-};
-
-refs.form.addEventListener('submit', event => {
+document.querySelector('.form').addEventListener('submit', function (event) {
   event.preventDefault();
-  createNotification().then(onFulfilled).catch(onRejected);
-});
 
-const createNotification = () => {
-  const time = refs.delayInput.value;
-
-  const isFulfilled = refs.fulfilledInput.checked;
+  const delay = parseInt(event.target.elements.delay.value);
+  const state = event.target.elements.state.value;
 
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (isFulfilled) {
-        resolve();
-      } else {
-        reject();
+      if (state === 'fulfilled') {
+        resolve(delay);
+      } else if (state === 'rejected') {
+        reject(delay);
       }
-    }, time);
+    }, delay);
   });
 
-  return promise;
-};
-
-function onFulfilled(result) {
-  iziToast.show({
-    message: `✅ Fulfilled promise in ${refs.delayInput.value}ms`,
-    position: 'topRight',
-    timeout: 5000,
-    backgroundColor: '#78e08f',
-    messageColor: '#ffffff',
-    close: true,
-    closeOnEscape: true,
-    progressBarColor: '#ffffff',
-    progressBar: true,
-    layout: 2,
-    maxWidth: 400,
-    animateInside: true,
-    transitionIn: 'fadeInRight',
-    transitionOut: 'fadeOutRight',
-  });
-}
-
-function onRejected(error) {
-  iziToast.show({
-    message: `❌ Rejected promise in ${refs.delayInput.value}ms`,
-    position: 'topRight',
-    timeout: 5000,
-    backgroundColor: '#ff6b6b',
-    messageColor: '#ffffff',
-    close: true,
-    closeOnEscape: true,
-    progressBarColor: '#ffffff',
-    progressBar: true,
-    layout: 2,
-    maxWidth: 400,
-    animateInside: true,
-    transitionIn: 'fadeInRight',
-    transitionOut: 'fadeOutRight',
-  });
-}
+    
+  promise
+    .then((delay) => {
+      iziToast.success({
+        title: '✅ Success',
+        message: `Fulfilled promise in ${delay}ms`,
+      });
+    })
+    .catch((delay) => {
+      iziToast.error({
+        title: '❌ Error',
+        message: `Rejected promise in ${delay}ms`,
+      });
+    });
+  
+});

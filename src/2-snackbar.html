@@ -2,37 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snackbar</title>
+    <title>Promise</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+    
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/2-snackbar.css" />
   </head>
   <body>
-    <a href="./index.html">Go to Menu</a>
-
-    <div class="form-container">
-      <form class="form">
-        <label class="delay-label">
-          Delay (ms) <br />
-          <input type="number" name="delay" id="delay" required />
+   
+    <form class="form"></form>
+      <label class="lbf">
+        Delay (ms)
+        <input type="number" name="delay" required />
+      </label>
+    
+      <fieldset class="fieldset">
+        <legend>State</legend>
+        <label>
+          <input  type="radio" name="state" value="fulfilled" required />
+          Fulfilled
         </label>
+        <label>
+          <input type="radio" name="state" value="rejected" required />
+          Rejected
+        </label>
+      </fieldset>
+    
+      <button class="btn"  type="submit">Create notification</button>
+    </form>
 
-        <fieldset class="fieldset">
-          <legend>State</legend>
-          <label>
-            <input type="radio" name="state" value="fulfilled" required />
-            Fulfilled
-          </label>
-          <label>
-            <input type="radio" name="state" value="rejected" required />
-            Rejected
-          </label>
-        </fieldset>
-
-        <button type="submit">Create notification</button>
-      </form>
-    </div>
-
-    <script type="module" src="./js/2-snackbar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <script src="./js/2-snackbar.js" type="module">
+    </script>
   </body>
 </html>
